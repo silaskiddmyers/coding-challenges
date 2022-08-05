@@ -8,9 +8,11 @@ import java.util.Scanner;
  */
 
 //cd Desktop/Revature/coding-challenges
-//git add App.java
+//git add src
 //git commit -m "added new challenge"
 //git push
+
+//cd Desktop/Revature/coding-challenges;git add src;git commit -m "added new challenge";git push
 
 public class App 
 {
