@@ -1,5 +1,6 @@
 package com.silascodingchallenges;
 
+
 import java.util.Scanner;
 
 /**
