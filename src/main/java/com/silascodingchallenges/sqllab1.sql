@@ -64,3 +64,39 @@ delete from invoice_line where invoice_id in (
 delete from invoice where customer_id = 32; 
 delete from customer where first_name = 'Robert' and last_name = 'Walter';
 
+--SQL Functions
+-- 3.1 System Defined Definitions
+--create function that returns current time
+select now();
+--create function that returns length of mediatype from meia type table
+select length(name) from media_type mt ;
+
+--3.2 System Defined Aggregate Functions
+--Task – Create a function that returns the average total of all invoices
+select total from invoice;
+select avg(total) from invoice;
+--Task – Create a function that returns the most expensive track
+select max(unit_price) from track t ;
+
+--3.3 User Defined Scalar Functions
+--Task – Create a function that returns the average price of invoiceline items in the invoiceline table
+select * from invoice_line;
+create or replace function avg_invoice_price()
+	returns numeric(10,2) as $$
+	begin
+		declare counter integer := 0;
+		average numeric(10,2) := 0.00;
+		p numeric(10,2) := 0.00;
+		
+		begin
+			for p in (select unit_price from invoice_line il) loop
+				average = average + p;
+				counter = counter + 1;
+			end loop;
+			average = average / counter;
+			return average;	
+		end; 
+	end;
+	$$ language PLPGSQL;
+
+select avg_invoice_price();
