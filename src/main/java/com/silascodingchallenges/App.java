@@ -1,6 +1,9 @@
 package com.silascodingchallenges;
 
+import com.silascodingchallenges.challenges.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -74,7 +77,7 @@ public class App
         Boolean running = true;
         
         while(running) {
-            System.out.println("Welcome to Silas' coding challenges! Please select an option below.\n1) Even or Odd\n2) Is it prime?\n3) Pig Latin!\n0) Close");
+            System.out.println("Welcome to Silas' coding challenges! Please select an option below.\n1) Even or Odd\n2) Is it prime?\n3) Pig Latin!\n4) Pig Latin 2.0!\n5) Sort an array\n0) Close");
             select = scan.nextLine();
             switch(select)
             {
@@ -98,6 +101,24 @@ public class App
                     System.out.println(App.pigLatin(pig)); 
                     scan.nextLine();
                     break;
+                case "4":
+                    PigLatin pig2 = new PigLatin();
+                    System.out.println("Convert a sentence to pig latin!\n");
+                    System.out.println("Enter a sentence to be converted to Pig Latin below. The only valid punctuation is at the end of the sentence.\n");
+                    String line = scan.nextLine();
+                    System.out.println(pig2.encode(line));
+                    scan.nextLine();
+                    break;
+                case "5":
+                    
+                    SimpleSort sort = new SimpleSort();
+                    List<Integer> toSort = new ArrayList<Integer>();
+                    System.out.println("Enter 5 numbers to be sorted");
+                    for(int i = 0; i <5; i++) {
+                        toSort.add(scan.nextInt());
+                    }
+                    
+                    System.out.println(sort.sort(toSort));
                 case "0":
                     running = false;
                     scan.close();
