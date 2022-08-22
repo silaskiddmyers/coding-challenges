@@ -77,7 +77,7 @@ public class App
         Boolean running = true;
         
         while(running) {
-            System.out.println("Welcome to Silas' coding challenges! Please select an option below.\n1) Even or Odd\n2) Is it prime?\n3) Pig Latin!\n4) Pig Latin 2.0!\n5) Sort an array\n0) Close");
+            System.out.println("Welcome to Silas' coding challenges! Please select an option below.\n1) Even or Odd\n2) Is it prime?\n3) Pig Latin!\n4) Pig Latin 2.0!\n5) Sort an array\n6) FizzBuzz\n0) Close");
             select = scan.nextLine();
             switch(select)
             {
@@ -117,8 +117,17 @@ public class App
                     for(int i = 0; i <5; i++) {
                         toSort.add(scan.nextInt());
                     }
-                    
+                    scan.nextLine();
+                    scan.nextLine();
                     System.out.println(sort.sort(toSort));
+                    break;
+                case "6":
+                    FizzBuzz fb = new FizzBuzz();
+                    System.out.println("Enter an integer and see what happens!");
+                    System.out.println(fb.exec(scan.nextInt()));
+                    scan.nextLine();
+                    scan.nextLine();
+                    break;
                 case "0":
                     running = false;
                     scan.close();
